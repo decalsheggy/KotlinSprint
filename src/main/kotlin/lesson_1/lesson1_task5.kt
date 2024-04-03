@@ -1,12 +1,18 @@
 package org.example.lesson_1
 
-fun main(){
-    val howManySec = 6480
-    val howManyMin = howManySec / 60
-    val howManyHours = howManyMin / 60
-    val restSec = howManySec % 60
-    val restMin = howManyMin % 60
-    println("время, проведенное в космосе: $howManyHours:$restMin:$restSec")
+const val SEC_IN_SPACE = 6480
+const val SEC_MIN_HOUR = 60
+
+fun main() {
+    val minInSpace = SEC_IN_SPACE / SEC_MIN_HOUR
+    val hoursInSpace = minInSpace / SEC_MIN_HOUR
+
+    val restSec = (SEC_IN_SPACE % SEC_MIN_HOUR)
+    val restMin = minInSpace % SEC_MIN_HOUR
+
+    val allTime = String.format("%02d:%02d:%02d", hoursInSpace, restMin, restSec)
+
+    println("Время, проведенное в космосе $allTime.")
 }
 /* Объяви переменную с количеством секунд, которые Гагарин провел в космосе.
 
