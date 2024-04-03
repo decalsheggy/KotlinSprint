@@ -7,7 +7,7 @@ fun main() {
     val minInSpace = SEC_IN_SPACE / SEC_MIN_HOUR
     val hoursInSpace = minInSpace / SEC_MIN_HOUR
 
-    val restSec = (SEC_IN_SPACE % SEC_MIN_HOUR)
+    val restSec = SEC_IN_SPACE % SEC_MIN_HOUR
     val restMin = minInSpace % SEC_MIN_HOUR
 
     val allTime = String.format("%02d:%02d:%02d", hoursInSpace, restMin, restSec)
