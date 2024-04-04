@@ -1,12 +1,13 @@
 package org.example.lesson2
 
 fun main() {
-    val a = 3.00
-    val b = 4.00
-    val c = 5.00
-    val middle = (a + a + b + c) / 4
+    val okay = 3.00
+    val good = 4.00
+    val excellent = 5.00
+    val students = 4
+    val average = (2 * okay + good + excellent) / students
 
-    println(middle)
+    println(average)
 }
 /*Задача на среднее арифметическое. В классе с углубленным изучением
 английского языка учится 4 человека. У них следующие баллы по профильному
