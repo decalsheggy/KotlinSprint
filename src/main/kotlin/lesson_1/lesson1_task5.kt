@@ -1,13 +1,14 @@
 package org.example.lesson_1
 
-const val SEC_IN_SPACE = 6480
+
 const val SEC_MIN_HOUR = 60
 
 fun main() {
-    val minInSpace = SEC_IN_SPACE / SEC_MIN_HOUR
+    val secInSpace = 6480
+    val minInSpace = secInSpace / SEC_MIN_HOUR
     val hoursInSpace = minInSpace / SEC_MIN_HOUR
 
-    val restSec = SEC_IN_SPACE % SEC_MIN_HOUR
+    val restSec = secInSpace % SEC_MIN_HOUR
     val restMin = minInSpace % SEC_MIN_HOUR
 
     val allTime = String.format("%02d:%02d:%02d", hoursInSpace, restMin, restSec)
