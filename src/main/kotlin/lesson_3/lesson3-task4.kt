@@ -5,15 +5,13 @@ fun main(){
     var where = "E4"
     var strokeNumber = "1"
 
-    var stringWhite = "[$whereFrom-$where; $strokeNumber]"
-    println("$strokeNumber-й ход белых - $stringWhite")
+    println("$strokeNumber-й ход белых - [$whereFrom-$where; $strokeNumber]")
 
     whereFrom = "D2"
     where = "D"+(2 + 1)
     strokeNumber = "2"
 
-    stringWhite = "[$whereFrom-$where; $strokeNumber]"
-    println("$strokeNumber-й ход белых - $stringWhite")
+    println("$strokeNumber-й ход белых - [$whereFrom-$where; $strokeNumber]")
 }
 /*В приложении шахматы, ходы отправляются на сервер в виде строки
 формата [откуда-куда;номер хода]. Игрок начал партию ходом из E2 в E4.
