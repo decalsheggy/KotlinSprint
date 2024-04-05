@@ -2,19 +2,20 @@ package org.example.lesson_3
 
 fun main() {
     val stringWhite = "D2-D4;0"
-    val firstParts = stringWhite.split(";")
 
-    val part1 = firstParts[0]
-    val strokeNumber = firstParts[1]
+    val moveNumber = stringWhite.split(";")
 
-    val secondParts = part1.split("-")
+    val move = moveNumber[0]
+    val number = moveNumber[1]
 
-    val whereFrom = secondParts[0]
-    val where = secondParts[1]
+    val location = move.split("-")
+
+    val whereFrom = location[0]
+    val where = location[1]
 
     println(whereFrom)
     println(where)
-    println(strokeNumber)
+    println(number)
 }
 /*Продолжаем работать над приложением “Шахматы”. Напиши программу для сервера,
 которая примет строку, отправленную игроком (считаем эти данные уже известными
