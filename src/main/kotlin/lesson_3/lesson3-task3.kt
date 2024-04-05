@@ -3,8 +3,15 @@ package org.example.lesson_3
 fun main() {
     val number = 7
     val arrayOfNumber = arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
+    var table = ""
 
-    println ("""$number * ${arrayOfNumber[0]} = ${number * arrayOfNumber[0]}
+    for (i in arrayOfNumber){
+        table += "$number * $i = ${number * i}\n"
+    }
+
+    println(table)
+
+    /*println ("""$number * ${arrayOfNumber[0]} = ${number * arrayOfNumber[0]}
         |$number * ${arrayOfNumber[1]} = ${number * arrayOfNumber[1]}
         |$number * ${arrayOfNumber[2]} = ${number * arrayOfNumber[2]}
         |$number * ${arrayOfNumber[3]} = ${number * arrayOfNumber[3]}
@@ -13,7 +20,7 @@ fun main() {
         |$number * ${arrayOfNumber[6]} = ${number * arrayOfNumber[6]}
         |$number * ${arrayOfNumber[7]} = ${number * arrayOfNumber[7]}
         |$number * ${arrayOfNumber[8]} = ${number * arrayOfNumber[8]}
-    """.trimMargin())
+    """.trimMargin())*/
 }
 /*Пишем программу, которая будет помогать учить таблицу умножения.
 В отдельную переменную будет записываться число (объявить и проинициализировать),
