@@ -1,14 +1,15 @@
 package org.example.lesson_3
 
 fun main(){
-    val beforeWeddingName = "Андреева Татьяна Сергеевна"
-    val afterWeddingName = "Сидорова Татьяна Сергеевна"
+    val name = "Татьяна"
+    val secondName = "Сергеевна"
+    val beforeWeddingName = "Андреева"
+    val afterWeddingName = "Сидорова"
     val ageBeforeWedding = 20
     val ageAfterWedding = 22
 
-    println("[$beforeWeddingName, $ageBeforeWedding лет]")
-    println("[$afterWeddingName, $ageAfterWedding года]")
-
+    println("[$beforeWeddingName $name $secondName, $ageBeforeWedding лет]")
+    println("[$afterWeddingName $name $secondName, $ageAfterWedding года]")
 }
 /*Девушка по имени Андреева Татьяна Сергеевна в 22 года
 вышла замуж за Сидорова, и поменяла фамилию.
