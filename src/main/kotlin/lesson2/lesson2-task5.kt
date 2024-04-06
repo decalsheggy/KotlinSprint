@@ -4,14 +4,14 @@ import kotlin.math.pow
 
 const val COEFFICIENT = 0.01
 
-fun main(){
-    val p = 70000
-    val i = 16.7 * COEFFICIENT
-    val n = 20
-    val s = p * ((1+i).pow(n))
-    //формула сложных процентов: (S = P*(1+ i)^n)
+fun main() {
+    val deposit = 70000
+    val rate = 16.7 * COEFFICIENT
+    val years = 20
+    val finalAmount = deposit * ((1 + rate).pow(years))
+    //формула сложных процентов: (finalAmount = deposit*(1+ rate)^years)
 
-    println(String.format("%.3f",s))
+    println(String.format("%.3f", finalAmount))
 
 }
 /*Напиши программу-калькулятор для банковского приложения
