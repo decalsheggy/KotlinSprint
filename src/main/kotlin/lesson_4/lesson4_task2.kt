@@ -1,21 +1,22 @@
 package org.example.lesson_4
 
+const val MIN_WEIGHT = 35
+const val MAX_WEIGHT = 100
+const val MAX_VOLUME = 100 //не включительно
+
 fun main(){
-    val minWeight = 35
-    val maxWeight = 100
-    val maxVolume = 100 //не включительно
 
     var weight = 20
     var volume = 80
 
     println("Груз с весом $weight кг и объемом $volume л соответствует категории 'Average': " +
-            "${(minWeight <= weight) && (weight <= maxWeight) && (volume < maxVolume)}.")
+            "${(MIN_WEIGHT <= weight) && (weight <= MAX_WEIGHT) && (volume < MAX_VOLUME)}.")
 
     weight = 50
     volume = 100
 
     println("Груз с весом $weight кг и объемом $volume л соответствует категории 'Average': " +
-            "${(minWeight <= weight) && (weight <= maxWeight) && (volume < maxVolume)}.")
+            "${(MIN_WEIGHT <= weight) && (weight <= MAX_WEIGHT) && (volume < MAX_VOLUME)}.")
 }
 /*При работе на таможенном терминале важно точно определить категорию каждого груза.
 Напиши программу, которая проверяет, соответствует ли груз категории "Average".
