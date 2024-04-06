@@ -2,12 +2,23 @@ package org.example.lesson_4
 
 fun main() {
     val currentDay = 5
-    val startHandsBelly = true
 
-    val isArms = if (startHandsBelly) currentDay % 2 == 1  else currentDay % 2 == 0
-    val isBelly = if (startHandsBelly) currentDay % 2 == 1  else currentDay % 2 == 0
-    val isLegs = if (startHandsBelly) currentDay % 2 == 0  else currentDay % 2 == 1
-    val isBack = if (startHandsBelly) currentDay % 2 == 0  else currentDay % 2 == 1
+    var isArms = true;
+    var isBelly = true;
+    var isLegs = false;
+    var isBack = false
+
+    if (currentDay % 2 == 1) {
+        isArms = true;
+        isBelly = true;
+        isLegs = false;
+        isBack = false
+    } else {
+        isArms = false;
+        isBelly = false;
+        isLegs = true;
+        isBack = true
+    }
 
     println(
         "Упражнения для рук:  $isArms\n" +
