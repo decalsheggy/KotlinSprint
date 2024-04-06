@@ -3,15 +3,11 @@ package org.example.lesson_3
 fun main() {
     val stringWhite = "D2-D4;0"
 
-    val moveNumber = stringWhite.split(";")
+    val moveNumber = stringWhite.split(";","-")
 
-    val move = moveNumber[0]
-    val number = moveNumber[1]
-
-    val location = move.split("-")
-
-    val whereFrom = location[0]
-    val where = location[1]
+    val whereFrom = moveNumber[0]
+    val where = moveNumber[1]
+    val number = moveNumber[2]
 
     println(whereFrom)
     println(where)
