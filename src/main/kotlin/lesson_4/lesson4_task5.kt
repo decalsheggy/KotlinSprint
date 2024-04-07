@@ -1,7 +1,10 @@
 package org.example.lesson_4
 
-fun main(){
-
+fun main() {
+    val damage = false
+    val people = 55..70
+    val minProvisions = 50//не включительно
+    val favorableWeather = true || false
 }
 /*Научно-исследовательский корабль может приступить
 к долгосрочному плаванию при выполнении следующих условий:
