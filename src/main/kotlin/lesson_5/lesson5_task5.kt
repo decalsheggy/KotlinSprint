@@ -3,7 +3,7 @@ package org.example.lesson_5
 import java.util.random.RandomGenerator
 import kotlin.random.Random
 
-fun main(){
+fun main() {
     println("Придумайте 3 числа:")
 
     val first = readLine()!!.toInt()
@@ -15,7 +15,7 @@ fun main(){
 
     val sistemRandomNumbers = mutableListOf<Int>()
 
-    repeat(3){
+    repeat(3) {
         val sistemRandomNumber = Random.nextInt(43)
         sistemRandomNumbers.add(sistemRandomNumber)
     }
@@ -23,12 +23,15 @@ fun main(){
     val checking = userRandomNumbers.intersect(sistemRandomNumbers).size
     println("Найдено совпадений: $checking")
 
-    if (checking == 3) println("Вы выиграли джекпот!")
-    if (checking == 2) println("Вы выиграли крупный приз!")
-    if (checking == 1) println("Вы получили утешительный приз!")
-    else println("Вы не угадали ни одного числа.")
+    val message = when {
+        (checking == 3) -> "Вы выиграли джекпот!"
+        (checking == 2) -> "Вы выиграли крупный приз!"
+        (checking == 1) -> "Вы получили утешительный приз!"
+        else -> "Вы не угадали ни одного числа."
+    }
+    println(message)
 
-    println("Выиграшные числа: $sistemRandomNumbers.")
+    println("Выигрышные числа: $sistemRandomNumbers.")
 }
 /*Для алгоритма улучшенного приложения-лотереи нужно угадать три числа от 0 до 42.
 Пользователь вводит числа через консоль.
