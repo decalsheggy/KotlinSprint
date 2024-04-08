@@ -1,5 +1,6 @@
 package org.example.lesson_4
 
+
 fun main() {
     val currentDay = 5
 
