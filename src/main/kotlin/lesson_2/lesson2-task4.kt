@@ -1,14 +1,14 @@
 package org.example.lesson2
 
-const val COEFFICIENT = 0.01
+const val COEFF = 0.01
 
 fun main(){
     val percent = 20
     val crystal = 7
     val iron = 11
 
-    val bonusCrystal = crystal * percent * COEFFICIENT
-    val bonusIron = iron * percent * COEFFICIENT
+    val bonusCrystal = crystal * percent * COEFF
+    val bonusIron = iron * percent * COEFF
 
     println("Бафф на 7 кристаллической руды +${bonusCrystal.toInt()}")
     println("Бафф на 11 железной руды +${bonusIron.toInt()}")
