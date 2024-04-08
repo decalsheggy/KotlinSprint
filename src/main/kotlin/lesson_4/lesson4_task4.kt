@@ -3,29 +3,17 @@ package org.example.lesson_4
 
 fun main() {
     val currentDay = 5
+    var isEvenDay = false
 
-    var isArms = true;
-    var isBelly = true;
-    var isLegs = false;
-    var isBack = false
-
-    if (currentDay % 2 == 1) {
-        isArms = true;
-        isBelly = true;
-        isLegs = false;
-        isBack = false
-    } else {
-        isArms = false;
-        isBelly = false;
-        isLegs = true;
-        isBack = true
+    if (currentDay % 2 == 0) {
+        isEvenDay = true
     }
 
     println(
-        "Упражнения для рук:  $isArms\n" +
-        "Упражнения для ног:  $isLegs\n" +
-        "Упражнения для спины:  $isBack\n" +
-        "Упражнения для пресса: $isBelly"
+        "Упражнения для рук:  ${!isEvenDay}\n" +
+        "Упражнения для ног:  $isEvenDay\n" +
+        "Упражнения для спины:  $isEvenDay\n" +
+        "Упражнения для пресса: ${!isEvenDay}"
     )
 }
 /*Программа тренировок разбивает упражнения на две группы: упражнения для мышц рук/пресса и ног/спины.
