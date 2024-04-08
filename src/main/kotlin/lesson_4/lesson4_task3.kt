@@ -1,12 +1,17 @@
 package org.example.lesson_4
 
-fun main() {
-    val sunny = true
-    val outdoor = true
-    val wet = 20
-    val season = "winter"
+const val IS_SUNNY = true
+const val IS_OUTDOOR = true
+const val WET = 20
+const val SEASON = "not winter"
 
-    val criteria = sunny && outdoor && wet == 20 && season != "winter"
+fun main() {
+    val weather = IS_SUNNY
+    val tent = IS_OUTDOOR
+    val air = WET
+    val timeOfYear = SEASON
+
+    val criteria = weather && tent && air == WET && timeOfYear != SEASON
 
     println("Благоприятные ли условия сейчас для роста бобовых? $criteria")
 }
