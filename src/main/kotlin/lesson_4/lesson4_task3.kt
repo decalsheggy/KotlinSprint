@@ -3,15 +3,18 @@ package org.example.lesson_4
 const val IS_SUNNY = true
 const val IS_OUTDOOR = true
 const val WET = 20
-const val SEASON = "not winter"
+const val SEASON = "winter"
 
 fun main() {
-    val weather = IS_SUNNY
-    val tent = IS_OUTDOOR
-    val air = WET
-    val timeOfYear = SEASON
+    val isWeatherSunny = true
+    val isTentOpen = true
+    val airHumidity = 20
+    val timeOfYear = "winter"
 
-    val criteria = weather && tent && air == WET && timeOfYear != SEASON
+    val criteria = (isWeatherSunny == IS_SUNNY) &&
+            (isTentOpen == IS_OUTDOOR) &&
+            (airHumidity == WET) &&
+            (timeOfYear != SEASON)
 
     println("Благоприятные ли условия сейчас для роста бобовых? $criteria")
 }
