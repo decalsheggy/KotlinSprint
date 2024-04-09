@@ -4,7 +4,7 @@ import java.util.random.RandomGenerator
 import kotlin.random.Random
 
 fun main() {
-    println("Придумайте 3 числа:")
+    println("Угадайте 3 числа от 0 до 42:")
 
     val first = readLine()!!.toInt()
     val second = readLine()!!.toInt()
