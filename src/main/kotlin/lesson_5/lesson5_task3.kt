@@ -4,21 +4,21 @@ fun main() {
     val number1 = "13"
     val number2 = "39"
 
-    println("Угадайте два числа от 0 до 42")
+    println("Угадайте два числа от 0 до 42:")
 
     val firstNumber = readln()
     val secondNumber = readln()
 
-    if (((firstNumber == number1) || (firstNumber == number2)) &&
-        ((secondNumber == number1) || (secondNumber == number2)) &&
-        (firstNumber != secondNumber)
-    )
+    val isFirstNumberCorrect = (firstNumber == number1) || (firstNumber == number2)
+    val isSecondNumberCorrect = (secondNumber == number1) || (secondNumber == number2)
+
+    if (isFirstNumberCorrect && isSecondNumberCorrect && (firstNumber != secondNumber))
         println("Поздравляем! Вы выиграли главный приз!")
-    else if (((firstNumber == number1) || (firstNumber == number2)) ||
-        ((secondNumber == number1) || (secondNumber == number2))
-    )
+    else if (isFirstNumberCorrect || isSecondNumberCorrect)
         println("Вы выиграли утешительный приз!")
     else println("Неудача!")
+
+    println("Верные числа: $number1, $number2.")
 }
 /*Для алгоритма простого приложения-лотереи, нужно угадать два числа от 0 до 42.
 Если угадать только одно – игрок получает утешительный приз.
