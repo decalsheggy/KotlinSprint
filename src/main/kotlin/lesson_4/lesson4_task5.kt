@@ -4,40 +4,23 @@ package org.example.lesson_4
 const val MIN_PEOPLE = 55
 const val MAX_PEOPLE = 70
 const val MIN_PROVISIONS = 50
-const val IS_FAVORABLE_WEATHER = true
-const val IS_NO_DAMAGE = true
 
 fun main() {
-    val peopleOnBoard = 60
-    val provision = 51
+    val peopleOnBoard = 70
+    val provision = 50
+    val isGoodWeather = true
+    val isNoDamage = true
 
-    if ((IS_NO_DAMAGE) &&
-        (peopleOnBoard >= MIN_PEOPLE && peopleOnBoard <= MAX_PEOPLE) &&
-        (provision > MIN_PROVISIONS)
-    ) {
-        println("Научно-исследовательский корабль может приступить" +
-                " к долгосрочному плаванию: ${true}.")
-    } else if ((peopleOnBoard == MAX_PEOPLE) &&
-        (IS_FAVORABLE_WEATHER == true) &&
-        (provision >= MIN_PROVISIONS)
-    ) {
-        println("Научно-исследовательский корабль может приступить" +
-                " к долгосрочному плаванию: ${true}.")
-    } else {
-        println("Научно-исследовательский корабль может приступить" +
-                " к долгосрочному плаванию: ${false}.")
-    }
-}
-           /*val isGoSailing = ((IS_NO_DAMAGE)
-            && (peopleOnBoard >= MIN_PEOPLE
-            && peopleOnBoard <= MAX_PEOPLE)
-            && (provision > MIN_PROVISIONS))
-            || ((!IS_NO_DAMAGE == true) &&
-            (peopleOnBoard == MAX_PEOPLE) &&
-            (IS_FAVORABLE_WEATHER == true) &&
+    val permissionToSail = ((isNoDamage) &&
+            (peopleOnBoard >= MIN_PEOPLE && peopleOnBoard <= MAX_PEOPLE) &&
+            (provision > MIN_PROVISIONS)
+            ) || ((peopleOnBoard == MAX_PEOPLE) &&
+            (isGoodWeather) &&
             (provision >= MIN_PROVISIONS))
-            println(isGoSailing)
-Научно-исследовательский корабль может приступить
+
+    println("Корабль может приступить к долгосрочному плаванию: $permissionToSail.")
+}
+/*Научно-исследовательский корабль может приступить
 к долгосрочному плаванию при выполнении следующих условий:
 
 - корабль не имеет повреждений;
