@@ -6,14 +6,17 @@ fun main() {
 
     println("Угадайте два числа от 0 до 42")
 
-    val firstNumber = readLine()
-    val secondNumber = readLine()
+    val firstNumber = readln()
+    val secondNumber = readln()
 
-    val arrayOfNumbers = arrayOf(number1, number2)
-
-    if ((firstNumber in arrayOfNumbers) && (secondNumber in arrayOfNumbers) && firstNumber != secondNumber)
+    if (((firstNumber == number1) || (firstNumber == number2)) &&
+        ((secondNumber == number1) || (secondNumber == number2)) &&
+        (firstNumber != secondNumber)
+    )
         println("Поздравляем! Вы выиграли главный приз!")
-    else if ((firstNumber in arrayOfNumbers) || (secondNumber in arrayOfNumbers))
+    else if (((firstNumber == number1) || (firstNumber == number2)) ||
+        ((secondNumber == number1) || (secondNumber == number2))
+    )
         println("Вы выиграли утешительный приз!")
     else println("Неудача!")
 }
