@@ -1,6 +1,6 @@
 package org.example.lesson_7
 
-fun main(){
+fun main() {
     val numbers = "1234567890"
     val lowercaseLetters = "abcdefghijklmnopqrstuvwxyz"
     val uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -10,8 +10,15 @@ fun main(){
     println("Введите предпочтительное количество символов в пароле(не менее 6):")
     val lengthOfPassword = readln().toInt()
 
-    for (i in 0 until lengthOfPassword){
-            password.append((numbers + lowercaseLetters + uppercaseLetters).random())
+    //добавляю по символу из каждой категории
+    password.append(numbers.random())
+    password.append(lowercaseLetters.random())
+    password.append(uppercaseLetters.random())
+
+    val allChars = "$numbers$lowercaseLetters$uppercaseLetters"
+
+    for (i in 0 until lengthOfPassword - 3) {
+        password.append(allChars.random())
     }
     println(password)
 }
