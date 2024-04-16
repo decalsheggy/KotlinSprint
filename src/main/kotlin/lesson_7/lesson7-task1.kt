@@ -5,10 +5,10 @@ import kotlin.random.Random
 fun main(){
     val characters = "abcdefghijklmnopqrstuvwxyz0123456789"
     val lengthOfPassword = 6
-    val randomPassword = StringBuilder()
+    val randomPassword = StringBuilder() //Позволяет модифицировать строки, не создавая новых объектов
 
     for (i in 0 until  lengthOfPassword){
-         randomPassword.append(characters.random())
+         randomPassword.append(characters.random()) // Метод append добавляет значение в конец
     }
     println("Возможный пароль: $randomPassword")
 }
