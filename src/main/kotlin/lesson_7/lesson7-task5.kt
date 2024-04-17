@@ -1,20 +1,21 @@
 package org.example.lesson_7
 
 fun main() {
-    val numbers = "1234567890"
-    val lowercaseLetters = "abcdefghijklmnopqrstuvwxyz"
-    val uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    val numbers = '0'..'9'
+    val lowercaseLetters = 'a'..'z'
+    val uppercaseLetters = 'A'..'Z'
 
     val password = StringBuilder()
 
     println("Введите предпочтительное количество символов в пароле(не менее 6):")
-    var lengthOfPassword: Int = readln().toInt()
+    var lengthOfPassword = readln().toInt()
 
     while (lengthOfPassword < 6) {
         println("Нужно не менее 6 символов!")
         lengthOfPassword = readln().toInt()
     }
 
+    //гарантированно по символу из каждого диапазона:
     val guaranteedChars = listOf(
         numbers.random(),
         lowercaseLetters.random(),
@@ -24,10 +25,8 @@ fun main() {
     val shuffledGuaranteedChars = guaranteedChars.shuffled()
     password.append(shuffledGuaranteedChars.joinToString(""))
 
-    val allChars = "$numbers$lowercaseLetters$uppercaseLetters"
-
-    for (i in 0 until lengthOfPassword - 3) {
-        password.append(allChars.random())
+    for (i in 0 until lengthOfPassword - shuffledGuaranteedChars.size) {
+        password.append((numbers + lowercaseLetters + uppercaseLetters).random())
     }
     println(password)
 }
