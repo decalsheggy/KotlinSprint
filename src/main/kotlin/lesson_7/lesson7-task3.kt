@@ -6,8 +6,8 @@ fun main() {
 
     println("Четные числа от 0 до $number:")
 
-    for (i in 0..number) {
-        if (i % 2 == 0 && i != 0) println(i)
+    for (i in 0..number step 2) {
+        println(i)
     }
 }
 /*Создай программу, которая выводит все чётные числа от нуля до числа, введенного пользователем.
