@@ -1,12 +1,15 @@
 package org.example.lesson_6
 fun main(){
-    var counter = 7
+    println("Введите количество секунд которые нужно засечь:")
+
+    var counter = readln().toInt()
+    val sec = "Прошло $counter секунд"
 
     while (counter > 0){
         println("${counter--}")
         Thread.sleep(1000)
     }
-    println("Прошло 7 секунд")
+    println(sec)
 }
 /*Создай простой таймер, который запрашивает у пользователя количество секунд,
 которые нужно засечь. По истечении заданного времени,
