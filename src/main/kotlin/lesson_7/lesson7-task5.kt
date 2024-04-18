@@ -25,8 +25,10 @@ fun main() {
     val shuffledGuaranteedChars = guaranteedChars.shuffled()
     password.append(shuffledGuaranteedChars.joinToString(""))
 
+    val allChars = (numbers + lowercaseLetters + uppercaseLetters)
+
     for (i in 0 until lengthOfPassword - shuffledGuaranteedChars.size) {
-        password.append((numbers + lowercaseLetters + uppercaseLetters).random())
+        password.append(allChars.random())
     }
     println(password)
 }
