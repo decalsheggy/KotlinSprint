@@ -4,12 +4,10 @@ fun main() {
     println("Сколько ингредиентов вам необходимо?")
 
     val size = readln().toInt()
-    // Создание массива строк с заданным размером, инициализированного значениями null
     val ingredients = Array<String?>(size) { null }
 
     println("Ваши ингредиенты:")
 
-    //.indices - свойство, которое возвращает диапазон допустимых индексов для массива
     for (i in ingredients.indices) {
         ingredients[i] = readln()
     }
