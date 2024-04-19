@@ -5,15 +5,15 @@ fun main() {
     println("Введите пять названий ингредиентов:")
 
     val size = 5
-    val ingredients = List(size){
-        readln()
-    }
+    val ingredients = List(size) { readln() }
     val allIngredients = ingredients
-        .toSet()
-        .toList()
+        .toSet()//преобразует список в множество, автоматически удаляя все дубликаты
+        .toList()// возвращает множество обратно в список для дальнейшей обработки
         .sorted()
-        .joinToString  (", ")
+        .joinToString(", ")
+        //изменяет первый символ результата на заглавный, если он в нижнем регистре:
         .replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
+
     println(allIngredients)
 
 }
