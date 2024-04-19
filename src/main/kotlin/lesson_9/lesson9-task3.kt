@@ -7,11 +7,11 @@ fun main() {
 
     val numberOfDishes = readln().toInt()
 
-    val dish = oneDish.map { it * numberOfDishes }
+    val allDishes = oneDish.map { it * numberOfDishes }
 
     println(
         "На $numberOfDishes порций вам понадобится:\n" +
-        "Яиц – ${dish[0]}шт, молока – ${dish[1]}мл, сливочного масла – ${dish[2]}мл."
+        "Яиц – ${allDishes[0]}шт, молока – ${allDishes[1]}мл, сливочного масла – ${allDishes[2]}мл."
     )
 }
 /*Напиши программу, которая будет рассчитывать сколько потребуется ингредиентов для разного количества порций блюда.
