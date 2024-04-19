@@ -7,11 +7,10 @@ fun main() {
     val size = 5
     val ingredients = List(size) { readln() }
     val allIngredients = ingredients
-        .toSet()//преобразует список в множество, автоматически удаляя все дубликаты
-        .toList()// возвращает множество обратно в список для дальнейшей обработки
+        .toSet()
+        .toList()
         .sorted()
         .joinToString(", ")
-        //изменяет первый символ результата на заглавный, если он в нижнем регистре:
         .replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
 
     println(allIngredients)
