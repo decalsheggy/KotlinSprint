@@ -10,7 +10,7 @@ fun main() {
 
     val decision = readln()
 
-    if (decision == "да") {
+    if (decision.equals("да", ignoreCase = true)) {
         println("Какой ингредиент вы хотите добавить?")
         scrambledEggsIng.add(readln())
         println("Теперь в рецепте есть следующие ингредиенты: ${scrambledEggsIng.joinToString()}.")
