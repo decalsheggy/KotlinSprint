@@ -10,7 +10,7 @@ fun main() {
 fun generatePassword(size: Int):String {
     val password = StringBuilder()
     val numbers = 0..9
-    val specialChars = "!\"#\$%&'()*+,-./ "
+    val specialChars = "!\"#\$%&'()*+,-. /"
 
     for (i in 0 until size) {
         if (i % 2 == 0) password.append(numbers.random()) else password.append(specialChars.random())
