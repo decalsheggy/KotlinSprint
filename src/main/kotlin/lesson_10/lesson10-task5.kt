@@ -15,14 +15,14 @@ fun main() {
     val token = authenticate(login, password)
     val cart = getShoppingCart(token)
 
-    if (cart != null) println("Ваша корзина: ${shoppingCart.joinToString()}.")
+    if (cart != null) println("Ваша корзина: ${cart.joinToString()}.")
     else println("Авторизация не удалась.")
 }
 
 fun generateToken(): String {
-    val token = listOf('a'..'z') + ('A'..'Z') + (1..9)
+    val tokenChars  = listOf('a'..'z') + ('A'..'Z') + (1..9)
     return (1..32)
-        .map { token.random() }
+        .map { tokenChars.random() }
         .joinToString("")
 }
 
