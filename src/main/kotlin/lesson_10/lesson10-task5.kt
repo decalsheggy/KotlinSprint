@@ -20,7 +20,7 @@ fun main() {
 }
 
 fun generateToken(): String {
-    val token = ('a'..'z') + ('A'..'Z') + (1..9)
+    val token = listOf('a'..'z') + ('A'..'Z') + (1..9)
     return (1..32)
         .map { token.random() }
         .joinToString("")
