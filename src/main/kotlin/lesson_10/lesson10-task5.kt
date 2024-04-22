@@ -4,7 +4,7 @@ import javax.swing.text.PasswordView
 
 const val RIGHT_LOGIN = "login"
 const val RIGHT_PASSWORD = "password"
-var shoppingCart = listOf("Apples", "Bananas", "Carrots")
+val shoppingCart = listOf("Apples", "bananas", "carrots")
 
 fun main() {
     println("Введите логин:")
@@ -15,14 +15,8 @@ fun main() {
     val token = authenticate(login, password)
     val cart = getShoppingCart(token)
 
-    if (cart != null) println("Добро пожаловать!")
+    if (cart != null) println("Ваша корзина: ${shoppingCart.joinToString()}.")
     else println("Авторизация не удалась.")
-}
-
-fun authenticate(login: String, password: String): String? {
-    return if (login == RIGHT_LOGIN && password == RIGHT_PASSWORD) {
-        generateToken()
-    } else null
 }
 
 fun generateToken(): String {
@@ -30,6 +24,12 @@ fun generateToken(): String {
     return (1..32)
         .map { token.random() }
         .joinToString("")
+}
+
+fun authenticate(login: String, password: String): String? {
+    return if (login == RIGHT_LOGIN && password == RIGHT_PASSWORD) {
+        generateToken()
+    } else null
 }
 
 fun getShoppingCart(token: String?): List<String>? {
