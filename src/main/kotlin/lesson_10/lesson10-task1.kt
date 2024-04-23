@@ -14,8 +14,8 @@ fun main() {
     else println("Плоть слаба. Да здравствует Бог-Машины!")
 }
 
-fun throwDice(): Int {
-    val randomDice = Random.nextInt(1, 7)
+fun throwDice(min: Int = 1, max: Int = 6): Int {
+    val randomDice = Random.nextInt(min, max + 1)
     return randomDice
 }
 /*Напиши небольшую игру, в которой пользователь и компьютер по очереди бросают кости.
