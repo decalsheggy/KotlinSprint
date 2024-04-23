@@ -1,7 +1,7 @@
 package org.example.lesson_11.task_1
 
 fun main(){
-    val user1: UserData = UserData(
+    val user1 = UserData(
         "warlock_3000",
         "1a2b3c4",
         "vlkvlkvyb5500",
