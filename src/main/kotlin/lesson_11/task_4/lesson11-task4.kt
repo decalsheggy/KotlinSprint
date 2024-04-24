@@ -17,6 +17,48 @@ fun main() {
     burgers.addDishes(burgerMushroomsAndCheese.toString())
     println(burgers)
 }
+
+class Category(
+    val nameOfCategory: String,
+    val dishes: MutableList<String> = mutableListOf()
+) {
+    fun addDishes(nameOfDish: String) {
+        dishes.add(nameOfDish)
+    }
+
+    init {
+        println("Блюдо в категории: $nameOfCategory")
+    }
+}
+
+class Recipe(
+    val nameOfDish: String,
+    val mutableListOfIngredients: MutableList<String> = mutableListOf()
+) {
+    fun addIngredient(ingredient: Ingredient) {
+        mutableListOfIngredients.add(ingredient.toString())
+    }
+
+    init {
+        println("Рецепт блюда: $nameOfDish")
+    }
+}
+
+class Ingredient(val nameOfIngredient: String, val count: Int) {
+    var weight: Int = 0
+
+    constructor(
+        nameOfIngredient: String,
+        count: Int,
+        weight: Int,
+    ) : this(nameOfIngredient, count) {
+        this.weight = weight
+    }
+
+    init {
+        println("Ингредиенты: $nameOfIngredient")
+    }
+}
 /*Задача 4 к Уроку 11
 
 Дизайнер предоставил макет Android-приложения:
