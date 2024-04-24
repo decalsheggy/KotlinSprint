@@ -16,6 +16,44 @@ fun main() {
     room1.outputInformation("ImageView2")
     room1.outputInformation("ImageView3")
 }
+
+class Room(
+    val image: String,
+    var roomName: String,
+    var participants: MutableList<Participant> = mutableListOf()
+) {
+    fun addParticipant(participant: Participant) {
+        participants.add(participant)
+    }
+
+    fun updateStatus(userName: String, newStatus: String) {
+        val name = participants.find { it.participantName == userName }
+        name?.updateStatus(newStatus)
+    }
+
+    fun outputInformation(image: String) {
+        val participant = participants.find { it.participantImage == image }
+        if (participant != null) println("${participant.participantName}, ${participant.status}")
+        else println("Не найден.")
+    }
+}
+
+class Participant(
+    val participantImage: String,
+    val participantName: String,
+    var status: String,
+) {
+
+    companion object {
+        val defaultStatus = listOf("разговаривает", "микрофон выключен", "пользователь заглушен")
+    }
+
+    fun updateStatus(newStatus: String) {
+        if (newStatus in defaultStatus) status = newStatus
+        else println("Не найден.")
+    }
+}
+
 /*Прокачиваем абстрактное мышление. Задача на проектирование сущностей для упрощенной версии приложения
 социальной сети, в которой общаются только голосом. Требуется описать сущности и имитировать действия методами.
 
