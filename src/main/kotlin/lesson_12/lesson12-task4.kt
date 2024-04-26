@@ -12,7 +12,7 @@ class WeatherData(_nightWeather: Int, _dayWeather: Int, _rainDuringTheDay: Boole
     init {
         println(
             "Погода ночью: $nightWeather°C, погода днем: $dayWeather°C, " +
-            "осадки: $rainDuringTheDay."
+                    "осадки: $rainDuringTheDay."
         )
     }
 }
