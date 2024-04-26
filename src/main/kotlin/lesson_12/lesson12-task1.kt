@@ -1,20 +1,20 @@
 package org.example.lesson_12
 
 fun main() {
-    val day1 = oneDayWeather()
+    val day1 = OneDayWeather()
     day1.nightWeather = 7
     day1.dayWeather = 16
     day1.rainDuringTheDay
     day1.printData()
 
-    val day2 = oneDayWeather()
+    val day2 = OneDayWeather()
     day2.nightWeather = 9
     day2.dayWeather = 20
     day2.rainDuringTheDay = false
     day2.printData()
 }
 
-class oneDayWeather() {
+class OneDayWeather() {
     var nightWeather = 5
     var dayWeather = 15
     var rainDuringTheDay = true
