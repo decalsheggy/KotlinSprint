@@ -1,11 +1,11 @@
 package org.example.lesson_12
 
 fun main() {
-    val weather = dayWeather(5, 10, true)
+    val weather = DayWeather(5, 10, true)
     weather.printData()
 }
 
-class dayWeather(_nightWeather: Int, _dayWeather: Int, _rainDuringTheDay: Boolean) {
+class DayWeather(_nightWeather: Int, _dayWeather: Int, _rainDuringTheDay: Boolean) {
     val nightWeather = _nightWeather
     val dayWeather = _dayWeather
     val rainDuringTheDay = _rainDuringTheDay
