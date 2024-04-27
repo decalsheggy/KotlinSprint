@@ -7,7 +7,6 @@ fun main() {
         println("Добавить новый контакт? да/нет")
         val answer = readln()
         if (answer.equals("да", true)) {
-
             println("Введите имя:")
             val userName = readln()
 
