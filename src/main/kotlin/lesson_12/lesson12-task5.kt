@@ -3,39 +3,30 @@ package org.example.lesson_12
 import java.util.Random
 
 fun main() {
-    val allDays = mutableListOf<String>()
-    val days = mutableListOf<Int>()
-    val nights = mutableListOf<Int>()
-    val rainDays = mutableListOf<Boolean>()
+    val allDays = mutableListOf<WeatherData>()
 
     for (i in 1..30) {
         val day = Random().nextInt(285, 295)
         val night = Random().nextInt(280, 290)
         val rain = Random().nextBoolean()
 
-        days.add(day)
-        nights.add(night)
-        rainDays.add(rain)
-
-        val weather = WeatherData(night, day, rain).toString()
+        val weather = WeatherData(night, day, rain)
         allDays.add(weather)
     }
 
-    val averageNight = nights
-        .map { it - 273 }
-        .map { it.toDouble() }
+    val averageNight = allDays
+        .map { it.nightWeather.toDouble()}
         .average()
         .toInt()
     println("Среднемесячная погода ночью: $averageNight°C.")
 
-    val averageDay = days
-        .map { it - 273 }
-        .map { it.toDouble() }
+    val averageDay = allDays
+        .map { it.dayWeather.toDouble() }
         .average()
         .toInt()
     println("Среднемесячная погода днем: $averageDay°C.")
 
-    val numberOfRainDays = rainDays.count { it }
+    val numberOfRainDays = allDays.count { it.rainDuringTheDay }
     println("Всего дождливых дней в этом месяце: $numberOfRainDays.")
 }
 
