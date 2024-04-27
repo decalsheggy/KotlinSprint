@@ -5,11 +5,11 @@ fun main() {
     weather.printData()
 }
 
-class DayWeather(_nightWeather: Int, _dayWeather: Int, _rainDuringTheDay: Boolean) {
-    val nightWeather = _nightWeather
-    val dayWeather = _dayWeather
-    val rainDuringTheDay = _rainDuringTheDay
-
+class DayWeather(
+    val nightWeather: Int,
+    val dayWeather: Int,
+    val rainDuringTheDay: Boolean,
+) {
     fun printData() {
         println("Погода ночью: $nightWeather°C, погода днем: $dayWeather°C, осадки: $rainDuringTheDay.")
     }
