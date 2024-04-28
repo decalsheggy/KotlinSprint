@@ -6,34 +6,51 @@ fun main() {
     val whiteRectangle = Rectangle("white", 18, 8)
     val blackRectangle = Rectangle("black", 17, 7)
 
+    var sumBlackPerimeters = 0.0
+    var sumWhiteAreas = 0.0
+
     val listOfFigures = listOf(whiteCircle, whiteRectangle, blackCircle, blackRectangle)
+    listOfFigures.forEach {
+        when (it.color) {
+            "black" -> sumBlackPerimeters += it.calculateThePerimeter()
+            "white" -> sumWhiteAreas += it.calculateTheArea()
+        }
+    }
+    println("Сумма периметров всех черных фигур: ${String.format("%.1f", sumBlackPerimeters)} см.")
+    println("Сумма площадей всех белых фигур: ${String.format("%.1f", sumWhiteAreas)} см.")
 }
 
-abstract class Figure {
-    abstract val color: String
+abstract class Figure(val color: String) {
+    abstract fun calculateTheArea(): Double
 
-    abstract fun calculateTheArea()
-
-    abstract fun calculateThePerimeter()
+    abstract fun calculateThePerimeter(): Double
 }
 
-class Circle(override val color: String, val radius: Int) : Figure() {
-    override fun calculateTheArea() {
-        println("Площадь окружности = ${String.format("%.0f",Math.PI * (radius * radius))}см.")
+class Circle(color: String, val radius: Int) : Figure(color) {
+    override fun calculateTheArea(): Double {
+        val area = Math.PI * (radius * radius)
+        println("Площадь окружности = ${String.format("%.1f", area)} см.")
+        return area
     }
 
-    override fun calculateThePerimeter() {
-        println("Периметр окружности = ${String.format("%.0f",2 * Math.PI * radius)}см.")
+    override fun calculateThePerimeter(): Double {
+        val perimeter = 2 * Math.PI * radius
+        println("Периметр окружности = ${String.format("%.1f", perimeter)} см.")
+        return perimeter
     }
 }
 
-class Rectangle(override val color: String, val length: Int, val width: Int) : Figure() {
-    override fun calculateTheArea() {
-        println("Площадь прямоугольника = ${length * width}см.")
+class Rectangle(color: String, val length: Int, val width: Int) : Figure(color) {
+    override fun calculateTheArea(): Double {
+        val area = length * width.toDouble()
+        println("Площадь прямоугольника = $area см.")
+        return area
     }
 
-    override fun calculateThePerimeter() {
-        println("Периметр прямоугольника = ${(length + width) * 2}см.")
+    override fun calculateThePerimeter(): Double {
+        val perimeter = (length + width) * 2.toDouble()
+        println("Периметр прямоугольника = $perimeter см.")
+        return perimeter
     }
 }
 /*Напиши программу для работы с геометрическими фигурами: кругом и прямоугольником.
