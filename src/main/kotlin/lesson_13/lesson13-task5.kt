@@ -1,18 +1,20 @@
 package org.example.lesson_13
 
-fun main(){
+fun main() {
     println("Введите номер телефона:")
-    val input = readln().toLongOrNull()
-    if (input == null) println("Нужно вводить только цифры.")
-    else {
-        val user = PhoneBookData("L", input, "School")
-        user.outputObjects()
-    }
+    val input = readln().toLong()
+
+    val user = PhoneBookData("L", input, "School")
+    user.outputObjects()
 }
 
-class PhoneBookData(val name: String, val phoneNumber: Long?, val company: String? = null) {
+class PhoneBookData(
+    val name: String,
+    val phoneNumber: Long?,
+    val company: String? = null,
+) {
     fun outputObjects() {
-        println("Имя: $name, номер телефона: $phoneNumber, место работы: ${company}")
+        println("Имя: $name, номер телефона: $phoneNumber, место работы: $company.")
     }
 }
 /*Скопируй класс из предыдущей задачи (без логики заполнения телефонной книги)
