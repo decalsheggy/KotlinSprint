@@ -9,18 +9,17 @@ fun main() {
     weatherServer.sendMessage(precipitation)
 }
 
-abstract class WeatherStationStats {}
+abstract class WeatherStationStats
 
-class Temperature(val temp: Int) : WeatherStationStats() {}
+class Temperature(val temp: Int) : WeatherStationStats()
 
-class PrecipitationAmount(val precipitation: Double) : WeatherStationStats() {}
+class PrecipitationAmount(val precipitation: Double) : WeatherStationStats()
 
 class WeatherServer {
     fun sendMessage(i: WeatherStationStats) {
         when (i) {
             is Temperature -> println("Температура: ${i.temp} °C")
             is PrecipitationAmount -> println("Количество осадков: ${i.precipitation} мм.")
-            else -> println("Тип не найден")
         }
     }
 }
