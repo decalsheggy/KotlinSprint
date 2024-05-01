@@ -25,7 +25,7 @@ fun main() {
     println("Ваше число побед: $numberOfWins")
 }
 
-fun throwDice(min: Int = 1, max: Int = 6): Int {
+fun throwDice1(min: Int = 1, max: Int = 6): Int {
 
     return Random.nextInt(min, max + 1)
 }
