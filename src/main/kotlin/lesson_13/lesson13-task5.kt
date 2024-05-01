@@ -2,10 +2,13 @@ package org.example.lesson_13
 
 fun main() {
     println("Введите номер телефона:")
-    val input = readln().toLong()
-
-    val user = PhoneBookData("L", input, "School")
-    user.outputObjects()
+    try {
+        val input = readln().toLong()
+        val user = PhoneBookData("L", input, "School")
+        user.outputObjects()
+    } catch (e: Exception) {
+        println("Ошибка - ${e::class.simpleName}.")
+    }
 }
 
 class PhoneBookData(
