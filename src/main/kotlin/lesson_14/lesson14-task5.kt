@@ -3,11 +3,10 @@ package org.example.lesson_14
 fun main() {
     val chat = Chat()
 
-    chat.addMessage("human1", "Yo")
-    chat.addMessage("human2", "Hi")
+    chat.addMessage("human1", "Всем привет!")
+    chat.addMessage("human2", "Вечер в хату")
     chat.addThreadMessage("human3", "Hi", 1)
     chat.addThreadMessage("human4", "Hi", 3)
-    chat.addMessage("human2", "Hi")
 
     chat.printChat()
 }
