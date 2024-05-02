@@ -2,20 +2,21 @@ package org.example.lesson_11.task_5
 
 fun main() {
     val forum = Forum()
-    forum.addMember("Applejack")
 
-    val Applejack = forum.members.last().userId
-    forum.addMessage(Applejack, "Привет")
-    forum.addMember("Fluttershy")
+    forum.addMember("user1")
+    val user1 = forum.members.last().userId
 
-    val Fluttershy = forum.members.last().userId
-    forum.addMessage(Fluttershy, "Вечер в хату")
-    forum.addMessage(Applejack, "Дружба это чудо")
-    forum.addMessage(Fluttershy, "Базаришь, сестра")
+    forum.addMember("user2")
+    val user2 = forum.members.last().userId
+
+    forum.addMessage(user1, "Работа не волк")
+    forum.addMessage(user1, "Работа это ворк")
+    forum.addMessage(user2, "А волк это ходить")
+    forum.addMessage(user2, "Запомните, а то забудете")
     forum.printThread()
 }
 
-open class ForumMember(val userId: String, val userName: String) {}
+open class ForumMember(val userId: String, val userName: String)
 class ForumMemberFactory {
     var memberIdCounter = 0
     fun createNewMember(userName: String): ForumMember {
@@ -24,7 +25,7 @@ class ForumMemberFactory {
     }
 }
 
-open class ForumMessage(val authorId: String, val message: String) {}
+open class ForumMessage(val authorId: String, val message: String)
 class ForumMessageFactory {
     fun createNewMessage(authorId: String, message: String): ForumMessage {
         return ForumMessage(authorId, message)
@@ -52,7 +53,7 @@ class Forum {
 
     fun printThread() {
         messages.forEach { msg ->
-            val memberName = members.find { it.userId == msg.authorId }?.userName ?: "Unknown"
+            val memberName = members.find { it.userId == msg.authorId }?.userName
             println("$memberName: ${msg.message}")
         }
     }
