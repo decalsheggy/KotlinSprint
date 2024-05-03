@@ -3,13 +3,14 @@ package org.example.lesson_14
 fun main() {
     val chat = Chat()
 
-    chat.addMessage("human1", "Всем привет!")
-    chat.addMessage("human2", "Вечер в хату")
-    chat.addThreadMessage("human3", "Hi", 1)
-    chat.addThreadMessage("human4", "Hi", 3)
+    chat.addMessage("human1", "Всем привет, подскажите домашку пж")
+    chat.addThreadMessage("human2", "Привет, учим слова на 103стр", 0)
+    chat.addMessage("human3", "Нам что-то задали?..")
+    chat.addThreadMessage("human4", "Как видишь", 2)
 
     chat.printChat()
 }
+
 class Chat {
     val messages = mutableListOf<Message>()
     var messageId = 0
@@ -23,14 +24,14 @@ class Chat {
     }
 
     fun printChat() {
-        val groupedMessages = messages.groupBy { if (it is ChildMessage) it.parentMessageId else it.id }
-        messages.forEach { i ->
-            if (i is ChildMessage) println("\t${i.text} by ${i.author} (reply to ${i.parentMessageId})\"")
-            else println("${i.text} by ${i.author}")
-            groupedMessages[i.id]?.forEach { childMessage ->
-                if (childMessage is ChildMessage) {
-                    println("\t${childMessage.text} by ${childMessage.author}")
-                }
+        val groupedMessages = messages.filterIsInstance<ChildMessage>().groupBy { it.parentMessageId }
+
+        messages.forEach { message ->
+            if (message !is ChildMessage || !groupedMessages.containsKey(message.parentMessageId)) {
+                println("${message.author}: ${message.text}")
+            }
+            groupedMessages[message.id]?.forEach { childMessage ->
+                println("\t${childMessage.author}: ${childMessage.text}")
             }
         }
     }
