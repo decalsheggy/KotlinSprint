@@ -3,10 +3,11 @@ package org.example.lesson_14
 fun main() {
     val chat = Chat()
 
-    chat.addMessage("human1", "Всем привет, подскажите домашку пж")
-    chat.addThreadMessage("human2", "Привет, учим слова на 103стр", 0)
-    chat.addMessage("human3", "Нам что-то задали?..")
-    chat.addThreadMessage("human4", "Как видишь", 2)
+    val message1 = chat.addMessage("human1", "Всем привет, подскажите домашку пж")
+    chat.addThreadMessage("human2", "Привет, учим слова на 103стр", message1.id)
+
+    val message2 = chat.addMessage("human3", "Нам что-то задали?..")
+    chat.addThreadMessage("human4", "Как видишь", message2.id)
 
     chat.printChat()
 }
@@ -15,8 +16,10 @@ class Chat {
     val messages = mutableListOf<Message>()
     var messageId = 0
 
-    fun addMessage(author: String, text: String) {
-        messages.add(Message(author, text, messageId++))
+    fun addMessage(author: String, text: String): Message {
+        val newMessage = Message(author, text, messageId++)
+        messages.add(newMessage)
+        return newMessage
     }
 
     fun addThreadMessage(author: String, text: String, parentMessageId: Int) {
