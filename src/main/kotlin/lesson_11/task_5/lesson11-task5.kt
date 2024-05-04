@@ -19,9 +19,9 @@ fun main() {
     forum.printThread()
 }
 
-open class ForumMember(val userId: String, val userName: String)
+class ForumMember(val userId: String, val userName: String)
 
-open class ForumMessage(val authorId: String, val message: String)
+class ForumMessage(val authorId: String, val message: String)
 
 class Forum {
     val members = mutableListOf<ForumMember>()
