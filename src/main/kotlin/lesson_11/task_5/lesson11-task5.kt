@@ -9,46 +9,42 @@ fun main() {
     forum.addMember("user2")
     val user2 = forum.members.last().userId
 
+    forum.addMember("user3")
+    val user3 = forum.members.last().userId
+
     forum.addMessage(user1, "Работа не волк")
     forum.addMessage(user1, "Работа это ворк")
     forum.addMessage(user2, "А волк это ходить")
-    forum.addMessage(user2, "Запомните, а то забудете")
+    forum.addMessage(user3, "Запомните, а то забудете")
     forum.printThread()
 }
 
 open class ForumMember(val userId: String, val userName: String)
-class ForumMemberFactory {
-    var memberIdCounter = 0
-    fun createNewMember(userName: String): ForumMember {
-        val userId = (++memberIdCounter).toString()
-        return ForumMember(userId, userName)
-    }
-}
 
 open class ForumMessage(val authorId: String, val message: String)
-class ForumMessageFactory {
-    fun createNewMessage(authorId: String, message: String): ForumMessage {
-        return ForumMessage(authorId, message)
-    }
-}
 
 class Forum {
     val members = mutableListOf<ForumMember>()
     val messages = mutableListOf<ForumMessage>()
-    val newMember = ForumMemberFactory()
-    val newMessage = ForumMessageFactory()
+    var memberIdCounter = 0
 
-    fun addMember(userName: String) {
-        val member = newMember.createNewMember(userName)
-        members.add(member)
+    fun addMember(userName: String): ForumMember {
+        val userId = (++memberIdCounter).toString()
+        val newMember = ForumMember(userId, userName)
+        members.add(newMember)
+        return newMember
     }
 
-    fun addMessage(authorId: String, message: String) {
+    fun addMessage(authorId: String, message: String): ForumMessage? {
         val member = members.find { it.userId == authorId }
-        if (member != null) {
-            val message = newMessage.createNewMessage(authorId, message)
-            messages.add(message).toString()
-        } else println("Не найден пользователь с ID: $authorId")
+        return if (member != null) {
+            val newMessage = ForumMessage(authorId, message)
+            messages.add(newMessage)
+            newMessage
+        } else {
+            println("Не найден пользователь с ID: $authorId")
+            null
+        }
     }
 
     fun printThread() {
