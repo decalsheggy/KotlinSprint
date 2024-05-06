@@ -5,8 +5,8 @@ import java.util.Random
 const val MIN = 1
 const val MAX = 6
 fun main() {
-    val a = Dice()
-    a.printInfo()
+    val diceNumber = Dice()
+    diceNumber.printInfo()
 }
 
 class Dice {
