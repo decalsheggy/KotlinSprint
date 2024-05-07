@@ -3,6 +3,7 @@ package org.example.lesson_16
 fun main() {
     val order = Order(675634, "В пути на склад")
     order.changeStatus("Готов к выдаче")
+
 }
 
 class Order(private val numberOfOrder: Int, private var statusOfOrder: String) {
