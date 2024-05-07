@@ -2,11 +2,11 @@ package org.example.lesson_16
 
 fun main() {
     val user = User("1234", "5678")
-    println(user.isTrue("5678"))
+    println(user.checkPassword("5678"))
 }
 
 class User(val login: String, private val password: String) {
-    fun isTrue(pass: String): Boolean {
+    fun checkPassword(pass: String): Boolean {
         return pass == password
     }
 }
