@@ -1,7 +1,7 @@
 package org.example.lesson_16
 
 fun main() {
-    val player = Player("me", 230, 28)
+    val player = Player("player", 230, 28)
 
     player.getPhysicalDamage(90)
     player.getHealing(20)
@@ -19,6 +19,7 @@ class Player(val name: String, private var hitPoints: Int, private var attackPow
         if (hitPoints > 0) {
             hitPoints -= damage
             if (hitPoints <= 0) {
+                println("Вы получили $damage урона, осталось 0 здоровья")
                 onDeath()
                 return
             }
