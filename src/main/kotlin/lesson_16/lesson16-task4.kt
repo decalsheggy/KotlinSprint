@@ -5,13 +5,15 @@ fun main() {
     order.changeStatus("Готов к выдаче")
 }
 
-class Order(private val numberOfOrder: Int, val statusOfOrder: String) {
+class Order(private val numberOfOrder: Int, private var statusOfOrder: String) {
     private fun changeStatusRequest(newStatus: String) {
         println("Статус заказа $numberOfOrder: \"$statusOfOrder\" изменить на: \"$newStatus\"")
+        this.statusOfOrder = newStatus
     }
 
     fun changeStatus(newStatus: String) {
         changeStatusRequest(newStatus)
+        println(newStatus)
     }
 }
 /*Создай класс, описывающий заказ в интернет-магазине.
@@ -22,4 +24,5 @@ class Order(private val numberOfOrder: Int, val statusOfOrder: String) {
 Поменять статус заказа можно только отправив заявку менеджеру.
 Имитируй это действие отдельной публичной функцией.
 Она будет принимать новый статус и обращаться
-к внутреннему методу класса для изменения статуса.*/
+к внутреннему методу класса для изменения статуса.
+println(order.statusOfOrder)*/
