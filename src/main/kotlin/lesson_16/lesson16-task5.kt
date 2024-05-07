@@ -2,6 +2,7 @@ package org.example.lesson_16
 
 fun main() {
     val player = Player("me", 230, 28)
+
     player.getPhysicalDamage(90)
     player.getHealing(20)
 
@@ -9,31 +10,32 @@ fun main() {
     player.getHealing(30)
 
     player.getPhysicalDamage(80)
+    player.getHealing(20)
 }
 
-class Player(val name: String, private var hitPoints: Int, private var impactForce: Int) {
+class Player(val name: String, private var hitPoints: Int, private var attackPower: Int) {
 
     fun getPhysicalDamage(damage: Int) {
-        if (hitPoints > 0){
+        if (hitPoints > 0) {
             hitPoints -= damage
-            if (hitPoints <= 0){
-                hitPointsIsOver(hitPoints)
+            if (hitPoints <= 0) {
+                onDeath()
+                return
             }
-            else println("Вы получили $damage урона, осталось $hitPoints здоровья")
+            println("Вы получили $damage урона, осталось $hitPoints здоровья")
         }
     }
 
     fun getHealing(healingPoints: Int) {
-        println("Вы восстановили $healingPoints здоровья, осталось $hitPoints")
-        hitPoints += healingPoints
+        if (hitPoints > 0) {
+            hitPoints += healingPoints
+            println("Вы восстановили $healingPoints здоровья, осталось $hitPoints")
+        } else println("Вы мертвы, нельзя восстановить здоровье")
     }
 
-    private fun hitPointsIsOver(hitPoints: Int): Boolean {
-        if (hitPoints <= 0) {
-            this.getHealing(0)
-            println("Вы мертвы")
-        }
-        return true
+    private fun onDeath() {
+        attackPower = 0
+        println("Вы мертвы")
     }
 }
 /*Для игры требуется создать класс игрока. С полями: имя, здоровье и сила удара.
