@@ -13,7 +13,7 @@ fun main() {
     player.getHealing(20)
 }
 
-class Player(val name: String, private var hitPoints: Int, private var attackPower: Int) {
+class Player(private val name: String, private var hitPoints: Int, private var attackPower: Int) {
 
     fun getPhysicalDamage(damage: Int) {
         if (hitPoints > 0) {
