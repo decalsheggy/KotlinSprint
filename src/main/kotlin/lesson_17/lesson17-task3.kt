@@ -2,10 +2,12 @@ package org.example.lesson_17
 
 fun main() {
     val pack1 = Package("Референсы", 44, false)
-    println("Конфиденциальность: ${pack1.flag}, название:\"${pack1.folderName}\", количество файлов:${pack1.files}")
+    pack1.readData()
+    println(pack1.folderName)
 
     val pack2 = Package("Идеи", 56)
-    println("Конфиденциальность: ${pack2.flag}, название:\"${pack2.folderName}\", количество файлов:${pack2.files}")
+    pack2.readData()
+    println(pack2.folderName)
 }
 
 class Package(
@@ -13,14 +15,19 @@ class Package(
     private val numberOfFiles: Int,
     private val secretFlag: Boolean = true,
 ) {
+
     val folderName: String
         get() = if (secretFlag) "Скрытая папка" else name
 
-    val files: Int
+    private val files: Int
         get() = if (secretFlag) 0 else numberOfFiles
 
-    val flag: Boolean
+    private val flag: Boolean
         get() = secretFlag
+
+    fun readData() {
+        println("Конфиденденциальность: ${this.flag}, название: \"${this.folderName}\", количество файлов: ${this.files}")
+    }
 }
 /*В приложении для хранения облачных файлов есть папки и файлы.
 
