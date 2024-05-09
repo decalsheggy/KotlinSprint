@@ -2,27 +2,25 @@ package org.example.lesson_17
 
 fun main() {
     val pack1 = Package("Референсы", 44, false)
-    pack1.readData()
+    println("Конфиденциальность: ${pack1.flag}, название:\"${pack1.folderName}\", количество файлов:${pack1.files}")
 
     val pack2 = Package("Идеи", 56)
-    pack2.readData()
+    println("Конфиденциальность: ${pack2.flag}, название:\"${pack2.folderName}\", количество файлов:${pack2.files}")
 }
 
 class Package(
-    private val _name: String,
-    private val _numberOfFiles: Int,
+    private val name: String,
+    private val numberOfFiles: Int,
     private val secretFlag: Boolean = true,
 ) {
+    val folderName: String
+        get() = if (secretFlag) "Скрытая папка" else name
 
-    val name: String
-        get() = if (secretFlag) "Скрытая папка" else _name
+    val files: Int
+        get() = if (secretFlag) 0 else numberOfFiles
 
-    val numberOfFiles: Int
-        get() = if (secretFlag) 0 else _numberOfFiles
-
-    fun readData() {
-        println("\"${this.name}\", количество файлов: ${this.numberOfFiles}")
-    }
+    val flag: Boolean
+        get() = secretFlag
 }
 /*В приложении для хранения облачных файлов есть папки и файлы.
 
