@@ -4,14 +4,16 @@ fun main() {
     val user = User("aB12345", "bA56789")
     user.changedLogin = "bA54321"
 
-    user.changedPassword = "135c796D53e"
-    println("Пароль: ${user.passwordInfo}")
+    user.currentPassword = "135c796D53e"
+    println("Пароль: ${user.currentPassword}")
 }
 
-class User(private var login: String, private val password: String) {
-    val passwordInfo: String = password.replace(Regex("."), "*")
-    var changedPassword: String
-        get() = password
+class User(initialLogin: String, initialPassword: String) {
+    private var login = initialLogin
+    private var password = initialPassword
+
+    var currentPassword: String
+        get() = "*".repeat(password.length)
         set(value) {
             if (value != password) println("Вы не можете изменить пароль на $value.")
         }
