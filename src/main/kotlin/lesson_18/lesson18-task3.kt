@@ -21,23 +21,12 @@ open class Animal(
     }
 }
 
-class Fox : Animal("Лиса", "ягоды", true) {
-    override fun toEat() {
-        super.toEat()
-    }
-}
+class Fox : Animal("Лиса", "ягоды", true)
 
-class Dog : Animal("Собака", "кости", true) {
-    override fun toEat() {
-        super.toEat()
-    }
-}
+class Dog : Animal("Собака", "кости", true)
 
-class Cat : Animal("Кошка", "рыбу", true) {
-    override fun toEat() {
-        super.toEat()
-    }
-}
+class Cat : Animal("Кошка", "рыбу", true)
+
 /*В тамагочи есть лиса, собака и кошка. Они могут только есть и спать.
 
 Лиса ест ягоды, собака – кости, а кошка – рыбу. У каждого животного есть имя.
