@@ -13,28 +13,28 @@ fun main() {
     }
 }
 
-open class Dice(numberOfFaces: Int) {
-    open fun throwDice() {}
-}
-
-class DiceFour(numberOfFaces: Int = 4) : Dice(numberOfFaces) {
-    override fun throwDice() {
-        val randomNumber = Random.nextInt(1, 4 + 1)
-        println("На 1к4 выпало число: $randomNumber")
+open class Dice(private val numberOfFaces: Int) {
+    open fun throwDice() {
+        val randomNumber = Random.nextInt(1, numberOfFaces + 1)
+        println("На 1к$numberOfFaces выпало число: $randomNumber")
     }
 }
 
-class DiceSix(numberOfFaces: Int = 6) : Dice(numberOfFaces) {
+class DiceFour : Dice(4) {
     override fun throwDice() {
-        val randomNumber = Random.nextInt(1, 6 + 1)
-        println("На 1к6 выпало число: $randomNumber")
+        super.throwDice()
     }
 }
 
-class DiceEight(numberOfFaces: Int = 8) : Dice(numberOfFaces) {
+class DiceSix : Dice(6) {
     override fun throwDice() {
-        val randomNumber = Random.nextInt(1, 8 + 1)
-        println("На 1к8 выпало число: $randomNumber")
+        super.throwDice()
+    }
+}
+
+class DiceEight : Dice(8) {
+    override fun throwDice() {
+        super.throwDice()
     }
 }
 /*В игре используются типы игральных костей с разным количеством граней: 4, 6 и 8.
