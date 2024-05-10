@@ -35,16 +35,8 @@ class Circle(x: Number, y: Number, private val radius: Int) : Object(x, y) {
 }
 
 class Screen {
-    fun draw(point: Point) {
-        point.draw()
-    }
-
-    fun draw(square: Square) {
-        square.draw()
-    }
-
-    fun draw(circle: Circle) {
-        circle.draw()
+    fun draw(objects: Object) {
+        objects.draw()
     }
 }
 /*point, square, circle
