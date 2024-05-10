@@ -20,23 +20,11 @@ open class Dice(private val numberOfFaces: Int) {
     }
 }
 
-class DiceFour : Dice(4) {
-    override fun throwDice() {
-        super.throwDice()
-    }
-}
+class DiceFour : Dice(4)
 
-class DiceSix : Dice(6) {
-    override fun throwDice() {
-        super.throwDice()
-    }
-}
+class DiceSix : Dice(6)
 
-class DiceEight : Dice(8) {
-    override fun throwDice() {
-        super.throwDice()
-    }
-}
+class DiceEight : Dice(8)
 /*В игре используются типы игральных костей с разным количеством граней: 4, 6 и 8.
 
 Опиши их иерархию, создав по классу на каждый тип. У каждой кости должен быть метод,
