@@ -10,7 +10,7 @@ fun main() {
 
 class User(initialLogin: String, initialPassword: String) {
     private var login = initialLogin
-    private var password = initialPassword
+    private val password = initialPassword
 
     var currentPassword: String
         get() = "*".repeat(password.length)
