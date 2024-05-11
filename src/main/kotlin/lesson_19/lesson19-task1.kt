@@ -1,8 +1,7 @@
 package org.example.lesson_19
 
 fun main() {
-    val fishes: List<Fishes> = listOf(Fishes.GUPPY, Fishes.ANGELFISH, Fishes.GOLDFISH, Fishes.SIAMESE_FISH)
-
+    val fishes = enumValues<Fishes>().toList()
     println("Доступные рыбы для добавления в аквариум: ${fishes.joinToString { it.nameOfFish }}.")
 }
 
