@@ -11,7 +11,7 @@ fun main() {
     product3.printProductInfo()
 }
 
-enum class Categories() {
+enum class Categories {
     CLOTHING,
     STATIONERY,
     OTHER;
@@ -25,14 +25,13 @@ enum class Categories() {
     }
 }
 
-class Product(val name: String, private val id: Int, private val category: Categories){
-    fun printProductInfo(){
+class Product(val name: String, private val id: Int, private val category: Categories) {
+    fun printProductInfo() {
         println("\"$name($id)\" - находится в категории: ${category.printCategoryInfo()}.")
     }
 }
 
 /*В интернет-магазине товары делятся на несколько категорий: одежда, канцелярские товары и разное.
-clothing, stationery, other/ nameOfCategory
  – создай enum класс с категориями;
  – создай метод внутри enum, который вернет текстовое название категории для пользователя;
  – создай класс, описывающий товар (с полями название, id, категория), в классе должен быть метод,
