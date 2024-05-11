@@ -11,7 +11,7 @@ fun main() {
     }
 }
 
-open class Animal(
+abstract class Animal(
     val name: String,
     private val food: String,
     val sleeping: Boolean,
