@@ -13,7 +13,7 @@ fun main() {
     }
 }
 
-open class Dice(private val numberOfFaces: Int) {
+abstract class Dice(private val numberOfFaces: Int) {
     open fun throwDice() {
         val randomNumber = Random.nextInt(1, numberOfFaces + 1)
         println("На 1к$numberOfFaces выпало число: $randomNumber")
