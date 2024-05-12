@@ -1,6 +1,5 @@
 package org.example.lesson_19
 
-import java.lang.IllegalArgumentException
 import java.util.Scanner
 
 fun main() {
@@ -16,20 +15,17 @@ fun main() {
         val input = scanner.nextLine()
         val parts = input.split(" ")
 
-        try {
-            if (parts.size == 2) {
-                val name = parts[0]
-                val genderInput = parts[1]
-                val gender = Gender.fromPerson(genderInput)
-                if (gender != null) {
-                    val person = Person(name, gender)
-                    people.add(person)
-                } else println("Ошибка в написании пола.")
-            } else println("Допущена ошибка в написании.")
-        } catch (e: IllegalArgumentException) {
-            println(e.message)
-        }
+        if (parts.size == 2) {
+            val name = parts[0]
+            val genderInput = parts[1]
+            val gender = Gender.fromPerson(genderInput)
+            if (gender != null) {
+                val person = Person(name, gender)
+                people.add(person)
+            } else println("Ошибка в написании пола.")
+        } else println("Допущена ошибка в написании.")
     }
+    println("Данные картотеки:")
     people.forEach {
         println("${it.nameOfPerson}(${it.genderOfPerson?.person})")
     }
