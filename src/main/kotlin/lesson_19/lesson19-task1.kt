@@ -1,8 +1,8 @@
 package org.example.lesson_19
 
 fun main() {
-    val fishes = enumValues<Fishes>().toList()
-    println("Доступные рыбы для добавления в аквариум: ${fishes.joinToString { it.nameOfFish }}.")
+    val fishes = Fishes.entries.joinToString { it.nameOfFish }
+    println("Доступные рыбы для добавления в аквариум: $fishes.")
 }
 
 enum class Fishes(val nameOfFish: String) {
