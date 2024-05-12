@@ -1,10 +1,10 @@
 package org.example.lesson_19
 
+import java.lang.IllegalArgumentException
 import java.util.Scanner
 
 fun main() {
     val people = mutableListOf<Person>()
-
     val scanner = Scanner(System.`in`)
 
     println(
@@ -16,21 +16,34 @@ fun main() {
         val input = scanner.nextLine()
         val parts = input.split(" ")
 
-        val name = parts[0]
-        val gender = Gender.valueOf(parts[1])
-
-        val person = Person(name, gender)
-        people.add(person)
+        try {
+            if (parts.size == 2) {
+                val name = parts[0]
+                val genderInput = parts[1]
+                val gender = Gender.fromPerson(genderInput)
+                if (gender != null) {
+                    val person = Person(name, gender)
+                    people.add(person)
+                }
+            } else println("Допущена ошибка в написании.")
+        } catch (e: IllegalArgumentException) {
+            println(e.message)
+        }
     }
-
 }
 
 enum class Gender(val person: String) {
     WOMAN("женщина"),
     MAN("мужчина");
+
+    companion object {
+        fun fromPerson(person: String): Gender? {
+            return values().firstOrNull { it.person.equals(person, true) }
+        }
+    }
 }
 
-class Person(nameOfPerson: String, genderOfPerson: Gender)
+class Person(val nameOfPerson: String, val genderOfPerson: Gender?)
 
 /*Разрабатываем приложение “Картотека”.
 Пользователь вводит имя и пол человека. Данные картотеки хранятся в списке.
