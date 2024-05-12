@@ -24,11 +24,14 @@ fun main() {
                 if (gender != null) {
                     val person = Person(name, gender)
                     people.add(person)
-                }
+                } else println("Ошибка в написании пола.")
             } else println("Допущена ошибка в написании.")
         } catch (e: IllegalArgumentException) {
             println(e.message)
         }
+    }
+    people.forEach {
+        println("${it.nameOfPerson}(${it.genderOfPerson?.person})")
     }
 }
 
