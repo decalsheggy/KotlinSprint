@@ -14,7 +14,6 @@ fun main() {
     while (people.size < 5) {
         val input = scanner.nextLine()
         val parts = input.split(" ")
-
         if (parts.size == 2) {
             val name = parts[0]
             val genderInput = parts[1]
