@@ -2,23 +2,28 @@ package org.example.lesson_20
 
 fun main() {
     val robot = Robot()
-    robot.say
-    robot.setModifier
-    robot.say
+
+    println("Original: ${robot.say()}")
+    robot.setModifier { phrase ->
+        phrase.split(" ").joinToString { it.reversed() }
+    }
+    println("Modified: ${robot.say()}")
 }
 
 class Robot {
-    val setModifier: (Phrases) -> String = { i ->
-        i.phrase.split(" ".toRegex()).joinToString { it.reversed() }
+    private var currentModifier: (String) -> String = { it }
+
+    fun setModifier(modifier: (String) -> String) {
+        currentModifier = modifier
     }
 
-    val say: () -> String = {
+    fun say(): String {
         val randomPhrases = Phrases.entries.toTypedArray().random().phrase
-        randomPhrases
+        return currentModifier(randomPhrases)
     }
 }
 
-enum class Phrases(val phrase: String) {
+enum class Phrases(var phrase: String) {
     PHRASE_1("   Приветствую вас, человеческий пользователь. Как я могу улучшить ваш день?"),
     PHRASE_2("Анализирую информацию... Пожалуйста, подождите."),
     PHRASE_3("Ваши инструкции приняты. Выполняю..."),
