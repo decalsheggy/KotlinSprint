@@ -6,6 +6,5 @@ fun main() {
         { "Нажат элемент \"$lambda\"" }
     }
 
-    val everyElement = listOfLambda.map { it.invoke("") }
-    everyElement.forEach { println(it) }
+    listOfLambda.forEach { println(it.invoke("")) }
 }
