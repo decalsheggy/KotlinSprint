@@ -6,5 +6,7 @@ fun main() {
         { "Нажат элемент \"$lambda\"" }
     }
 
-    listOfLambda.forEach { println(it.invoke("")) }
+    listOfLambda.forEachIndexed { index, lambda ->
+        if (index % 2 == 0) println(lambda.invoke(""))
+    }
 }
