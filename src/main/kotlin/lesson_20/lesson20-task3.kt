@@ -4,13 +4,13 @@ fun main() {
     val player1 = Player("Игрок1", false)
     val player2 = Player("Игрок2", true)
 
-    val hasKey: (Player) -> Unit = {
-        if (it.key) println("${it.name} открыл дверь.")
+    val checkTheKey: (Player) -> Unit = {
+        if (it.hasKey) println("${it.name} открыл дверь.")
         else println("${it.name} не может войти. Дверь заперта.")
     }
-    hasKey(player1)
-    hasKey(player2)
+    checkTheKey(player1)
+    checkTheKey(player2)
 }
 
-class Player(val name: String, var key: Boolean)
+class Player(val name: String, var hasKey: Boolean)
 
