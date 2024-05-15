@@ -13,5 +13,3 @@ fun List<Int>.evenNumbersSum(): Int {
     }
     return sum
 }
-/*Создай extension функцию evenNumbersSum для списка чисел,
-которая будет возвращать сумму всех четных чисел в списке.*/
