@@ -12,12 +12,15 @@ fun main() {
         null,
         4.367
     )
-    val (nameOfPlaceOrEvent, descriptionOfPlaceOrEvent,timeOfEvent,distance) = place
+    val nameOfPlaceOrEvent = place.component1()
+    val descriptionOfPlaceOrEvent = place.component2()
+    val timeOfEvent = place.component3()
+    val distance = place.component4()
 
     println("Название места: $nameOfPlaceOrEvent")
     println("Описание места: $descriptionOfPlaceOrEvent")
-    println("Время события: $timeOfEvent")
-    println("Расстояние : $distance световых лет")
+    println("Время события: ${timeOfEvent ?: "Дата и время отсутствуют"}")
+    println("Расстояние: $distance световых лет")
 }
 
 data class GalacticGuide(
